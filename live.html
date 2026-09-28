@@ -134,8 +134,9 @@
     }
 
     function render() {
-      var status = window.SITE_LIVE_STATUS || { live: false, platform: null, schedule: [] };
+      var status = window.SITE_LIVE_STATUS || { live: false, platforms: [], schedule: [] };
       var isLive = resolveLive(status);
+      var platforms = status.platforms || (status.platform ? [status.platform] : []);
 
       var badge = document.getElementById('live-badge');
       var badgeText = document.getElementById('live-badge-text');
@@ -147,7 +148,7 @@
 
       document.querySelectorAll('.platform-row').forEach(function (row) {
         var statusEl = row.querySelector('.status');
-        var highlighted = isLive && row.dataset.key === status.platform;
+        var highlighted = isLive && platforms.indexOf(row.dataset.key) !== -1;
         row.classList.toggle('live-on', highlighted);
         statusEl.textContent = highlighted ? 'Live' : 'Offline';
       });
