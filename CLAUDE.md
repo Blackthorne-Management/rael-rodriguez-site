@@ -10,8 +10,11 @@ Read this first, every session (cloud or desk).
 - Before anything hard to undo (deleting files, rewriting history, changing hosting or account settings), ask first.
 
 ## Where things live
-- **Source of truth:** GitHub, `keepingitrael-dev/rael-rodriguez-site`, branch `main`. Work on `main` unless Rael asks for a branch.
-- **Hosting:** Netlify. The site ID is `6eeb842e-9c91-4e0b-a258-a2085c6b7417`, and the live address is https://raelrodriguez.com.
+- **Source of truth:** GitHub, `Blackthorne-Management/rael-rodriguez-site` (private), branch `main`. Work on `main` unless Rael asks for a branch.
+  - The old repo `keepingitrael-dev/rael-rodriguez-site` is a frozen backup (the git remote `rael-old` on the desk computer). Don't push to it.
+- **Hosting:** Netlify, under the **Blackthorne** Netlify account. The live address is https://raelrodriguez.com.
+  - The new Blackthorne site ID isn't recorded yet. Add it here once the site exists.
+  - The old site under Rael's own Netlify account (`6eeb842e-9c91-4e0b-a258-a2085c6b7417`) is being retired because it ran out of credits.
 - **How it deploys:** Netlify is connected to the GitHub repo and **auto-deploys when `main` is pushed**. Never deploy from the command line (`netlify deploy` etc.). Pushing to GitHub is the deploy.
 - **Build:** none. It's plain HTML/CSS/JS, and the publish folder is the repo root (see `netlify.toml`). The only server code is in `netlify/functions/`, and `/api/*` is routed to those functions.
 - **Data and services (all inside the same Netlify site, no outside database):**
@@ -61,4 +64,9 @@ Kept out by `.gitignore`. The desk computer backs them up nightly to
 - **No Netlify dashboard access:** you can't see deploy logs or change settings. If a push doesn't appear live, tell Rael to check the **Deploys** tab at app.netlify.com.
 
 ## Known issues
-- **Deploy not live yet:** as of 2026-10-02, commit `544e5e6` (all three platforms show Live) was pushed on 2026-09-28 but **had not appeared on raelrodriguez.com**. The live site was still on the previous commit, `228f694`. Netlify's auto-deploy may have stopped or failed. Check the Deploys tab before assuming a push went live, and remove this note once it's fixed.
+- **Moving to Blackthorne Netlify (in progress, 2026-10-02):** Rael's old Netlify site stopped deploying after Sep 10, probably because it ran out of credits. As a result, raelrodriguez.com still shows commit `228f694`, and later changes (including all three platforms showing Live) aren't live yet.
+  - The fix is a new Netlify site under Blackthorne, linked to the Blackthorne repo.
+  - The 7 environment variables have to be re-entered there. `NETLIFY_API_TOKEN` and `SITE_ID` must be the new site's values.
+  - The domain has to be moved over, and the coaching-form email notification turned back on.
+  - The income-tracker data and past form submissions stay on the old site and do **not** move automatically.
+  - Remove this note once the move is done.
