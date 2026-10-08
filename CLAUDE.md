@@ -49,7 +49,7 @@ Kept out by `.gitignore`. The desk computer backs them up nightly to
 - **Live page (`live.html`):**
   - The schedule is **Mondays and Thursdays, 7:45–9:30 PM Eastern**, set in `live-status.js`.
   - Times are always America/New_York, whatever time zone the visitor is in.
-  - During the schedule, **Twitch, YouTube, and Instagram all show Live together** (`platforms: ["twitch", "youtube", "instagram"]`). Don't go back to a single platform.
+  - During the schedule, **Twitch and YouTube both show Live together** (`platforms: ["twitch", "youtube"]`). Instagram was removed on purpose (Rael's request, 2026-10-08). Don't add it back or go to a single platform.
   - `live: "auto"` is the normal setting. `true` or `false` is only for a one-off extra or skipped stream, then it goes back to `"auto"`.
 - **Pages kept out of search engines:** `live.html`, `admin/`, and `tracker/admin.html` have `noindex, nofollow`. Keep it.
 - **Income tracker storage:** in `netlify/functions/_shared/store.js`, `consistency: 'strong'` is left out on purpose because it breaks reads on Netlify. Don't add it back.

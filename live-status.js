@@ -6,7 +6,7 @@
 //   false   — force OFFLINE regardless of the schedule (e.g. skipping a scheduled day).
 //   Set it back to "auto" once the one-off is over.
 //
-// platforms: which entries get highlighted while live — any of "twitch", "youtube", "instagram".
+// platforms: which entries get highlighted while live — "twitch" and/or "youtube".
 //   Only matters while live is true or a scheduled window is active.
 //
 // schedule: recurring windows, checked only when live is "auto".
@@ -15,7 +15,7 @@
 //   this is fixed regardless of where a visitor is viewing the page from.
 window.SITE_LIVE_STATUS = {
   live: "auto",
-  platforms: ["twitch", "youtube", "instagram"],
+  platforms: ["twitch", "youtube"],
   schedule: [
     { day: 1, start: "19:45", end: "21:30" }, // Monday, 7:45–9:30 PM ET
     { day: 4, start: "19:45", end: "21:30" }  // Thursday, 7:45–9:30 PM ET
